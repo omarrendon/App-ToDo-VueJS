@@ -1,0 +1,40 @@
+
+.titulo {
+    background: rgb(19, 184, 54);
+    width: 100%;
+    height: 80px;
+}
+.titulo h1 {
+    text-align: center;
+    color: #ffffff;
+    padding-top: 20px;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 15px;
+    font-size: 2.5em;
+}
+.app {
+    width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "form  table";
+}
+
+.formulario{
+    border: 1px solid #9c9c9c;
+    grid-area: form;
+    width: 500px;
+    padding: 0 80px
+}
+.tabla {
+    grid-area: table;
+    width: 850px;
+    padding: 30px 30px;
+}
+.eliminar:hover {
+    color: crimson;
+    font-size: 3.5em;
+
+}

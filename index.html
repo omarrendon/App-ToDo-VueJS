@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+</head>
+
+<body>
+    <div class="titulo">
+        <h1>LISTA DE REFACCIONES</h1>
+    </div>
+    <div id="app" class="app">
+
+        <div class="formulario">
+            <v-app id="inspire">
+                <v-form class="form" ref="form" v-model="valid" lazy-validation>
+                    <v-text-field v-model="nombreRefaccion" :counter="50" :rules="nameRules" label="Nombre de Refacción"
+                        required></v-text-field>
+
+                    <v-text-field v-model="numeroSerie" :counter="50" :rules="nameRules" label="Número de Serie"
+                        required></v-text-field>
+
+                    <v-text-field v-model="modeloVehiculo" :counter="50" :rules="nameRules" label="Modelo Vehiculo"
+                        required></v-text-field>
+
+                    <v-text-field v-model="Stock" :counter="50" :rules="nameRules" label="Stock" type="number" required>
+                    </v-text-field>
+
+                    <v-text-field v-model="Proveedor" :counter="50" :rules="nameRules" label="Proveedor" required>
+                    </v-text-field>
+
+                    <v-text-field v-model="Compra" :counter="50" :rules="nameRules" label="Compra" required>
+                    </v-text-field>
+
+                    <v-text-field v-model="Venta" :counter="50" :rules="nameRules" label="Venta" required>
+                    </v-text-field>
+
+                    <v-btn :disabled="!valid" color="success" class="mr-4" @click="agregarProducto">
+                        Guardar
+                    </v-btn>
+
+                    <v-btn color="error" class="mr-4" @click="reset">
+                        Limpiar Campos
+                    </v-btn>
+                </v-form>
+        </div>
+
+
+        <div class="tabla">
+            <v-simple-table :dense="dense" :fixed-header="fixedHeader" :height="height">
+                <template v-slot:default>
+                    <thead>
+                        <tr>
+                            <th class="text-left">Nombre Refacción</th>
+                            <th class="text-left">Número Serie</th>
+                            <th class="text-left">Modelo del vehiculo</th>
+                            <th class="text-left">Stock</th>
+                            <th class="text-left">Proovedor</th>
+                            <th class="text-left">Compra</th>
+                            <th class="text-left">Venta</th>
+                            <th class="text-left">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in refacciones" :key="item.name">
+                            <!-- <td>{{ item.name }}</td>
+                  <td>{{ item.calories }}</td> -->
+                            <td v-text="item.nombreRefaccion"></td>
+                            <td v-text="item.numeroSerie"></td>
+                            <td v-text="item.modeloVehiculo"></td>
+                            <td v-text="item.Stock"></td>
+                            <td v-text="item.Proveedor"></td>
+                            <td v-text="item.Compra"></td>
+                            <td v-text="item.Venta"></td>
+                            <th @click="eliminarIndice"><button class="eliminar">-</button></th>
+                        </tr>
+                    </tbody>
+                </template>
+            </v-simple-table>
+
+
+        </div>
+        </v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="vue.js"></script>
+</body>
+
+</html>
